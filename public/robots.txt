@@ -1,0 +1,30 @@
+# Robots.txt for SV College Management System
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /faculty/
+Disallow: /student/
+Disallow: /blocked/
+
+# Disallow aggressive AI training scrapers and non-consensual harvesters
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# Sitemap
+Sitemap: https://svcollege.edu.in/sitemap.xml
