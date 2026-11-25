@@ -15,7 +15,7 @@ import { Course } from '@/types';
 import { useAuth } from '@/context/AuthContext';
 import { Avatar } from '@/components/ui/Avatar';
 
-export default function FacultyStudentsPage() {
+function FacultyStudentsContent() {
   const { user } = useAuth();
   const searchParams = useSearchParams();
   const queryCourseCode = searchParams.get('courseCode') || searchParams.get('courseId');
@@ -235,5 +235,13 @@ export default function FacultyStudentsPage() {
       )}
     </div>
   </PortalLayout>
+  );
+}
+
+export default function FacultyStudentsPage() {
+  return (
+    <React.Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">Loading students...</div>}>
+      <FacultyStudentsContent />
+    </React.Suspense>
   );
 }

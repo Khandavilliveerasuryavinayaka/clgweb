@@ -12,7 +12,14 @@ import {
 } from '@/types';
 
 class SupabaseService {
-  private client = getSupabaseClient();
+  private _client: any = null;
+
+  private get client() {
+    if (!this._client) {
+      this._client = getSupabaseClient();
+    }
+    return this._client;
+  }
 
   // ==========================================
   // 1. AUTHENTICATION & USERS

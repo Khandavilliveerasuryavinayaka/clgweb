@@ -2,6 +2,8 @@ import { NextRequest } from 'next/server';
 import { apiSuccess } from '@/lib/api/response';
 import { getSupabaseClient } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const role = searchParams.get('role');

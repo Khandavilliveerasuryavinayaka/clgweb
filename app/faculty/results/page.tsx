@@ -47,7 +47,7 @@ interface StudentRosterRow {
   status: string;
 }
 
-export default function FacultyResultsPage() {
+function FacultyResultsContent() {
   const { user } = useAuth();
   const { success, error: toastError, warning } = useToast();
   const searchParams = useSearchParams();
@@ -807,5 +807,13 @@ export default function FacultyResultsPage() {
         )}
       </div>
     </PortalLayout>
+  );
+}
+
+export default function FacultyResultsPage() {
+  return (
+    <React.Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">Loading results...</div>}>
+      <FacultyResultsContent />
+    </React.Suspense>
   );
 }

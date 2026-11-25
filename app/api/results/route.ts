@@ -3,6 +3,8 @@ import { apiSuccess, apiError } from '@/lib/api/response';
 import { supabaseService } from '@/lib/services/supabaseService';
 import { getSupabaseClient } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const role = searchParams.get('role');

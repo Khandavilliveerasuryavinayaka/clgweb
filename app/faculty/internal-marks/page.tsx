@@ -13,7 +13,7 @@ import { useToast } from '@/components/ui/Toast';
 import { InternalMark, Course } from '@/types';
 import { Award, Save, Send, ShieldAlert, CheckCircle2, Users, Lock } from 'lucide-react';
 
-export default function FacultyInternalMarksPage() {
+function FacultyInternalMarksContent() {
   const { user } = useAuth();
   const { success, error: toastError } = useToast();
   const searchParams = useSearchParams();
@@ -464,5 +464,13 @@ export default function FacultyInternalMarksPage() {
       )}
     </div>
   </PortalLayout>
+  );
+}
+
+export default function FacultyInternalMarksPage() {
+  return (
+    <React.Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">Loading internal marks...</div>}>
+      <FacultyInternalMarksContent />
+    </React.Suspense>
   );
 }

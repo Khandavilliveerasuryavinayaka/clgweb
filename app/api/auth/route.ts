@@ -3,6 +3,8 @@ import { apiSuccess, apiError } from '@/lib/api/response';
 import { supabaseService } from '@/lib/services/supabaseService';
 import { getSupabaseClient } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();

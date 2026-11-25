@@ -25,7 +25,7 @@ import {
   Clock
 } from 'lucide-react';
 
-export default function FacultyAssignmentsPage() {
+function FacultyAssignmentsContent() {
   const { user } = useAuth();
   const { success, error: toastError } = useToast();
   const searchParams = useSearchParams();
@@ -453,5 +453,13 @@ export default function FacultyAssignmentsPage() {
         )}
       </div>
     </PortalLayout>
+  );
+}
+
+export default function FacultyAssignmentsPage() {
+  return (
+    <React.Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">Loading assignments...</div>}>
+      <FacultyAssignmentsContent />
+    </React.Suspense>
   );
 }

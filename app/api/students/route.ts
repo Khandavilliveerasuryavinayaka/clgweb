@@ -4,6 +4,8 @@ import { getSupabaseClient } from '@/lib/supabase';
 import { supabaseService } from '@/lib/services/supabaseService';
 import { mockDb } from '@/lib/data/mockDatabase';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const reg = searchParams.get('reg');

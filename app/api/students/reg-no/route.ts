@@ -3,6 +3,8 @@ import { apiSuccess, apiError } from '@/lib/api/response';
 import { getSupabaseClient } from '@/lib/supabase';
 import { mockDb } from '@/lib/data/mockDatabase';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);

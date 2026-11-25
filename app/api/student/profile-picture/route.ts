@@ -68,6 +68,8 @@ function validateMagicBytes(buffer: Buffer): { isValid: boolean; detectedType?: 
 }
 
 // POST: Upload or change student profile picture
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
   try {
     const authenticatedUser = await resolveAuthenticatedUser(req);

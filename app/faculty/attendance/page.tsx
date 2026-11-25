@@ -24,7 +24,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 
-export default function FacultyAttendancePage() {
+function FacultyAttendanceContent() {
   const { user } = useAuth();
   const { success, error: toastError } = useToast();
   const searchParams = useSearchParams();
@@ -428,5 +428,13 @@ export default function FacultyAttendancePage() {
         )}
       </div>
     </PortalLayout>
+  );
+}
+
+export default function FacultyAttendancePage() {
+  return (
+    <React.Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">Loading attendance...</div>}>
+      <FacultyAttendanceContent />
+    </React.Suspense>
   );
 }
